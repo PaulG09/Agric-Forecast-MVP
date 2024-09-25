@@ -43,14 +43,20 @@ def predict():
     # Check if there's enough data to fit the model
     if len(time_series_data) < 2:
         return jsonify({'error': 'Not enough data to make a prediction.'}), 400
-    # Fit an ARIMA model (you can adjust the (p,d,q) parameters as needed)
-    try:
-        model = ARIMA(time_series_data['PRODUCTION (Mt)'], order=(1, 1, 1))  # Example parameters
-        model_fit = model.fit()
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500  # Return the error message if model fitting fails
+    # Prepare features and target
+    X = time_series_data[['YEAR']]
+    y = time_series_data['PRODUCTION (Mt)']
+
+    # Split the data into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Create and train the Linear Regression model
+    model = LinearRegression()
+    model.fit(X_train, y_train)
+
     # Make a prediction for the next year
-    forecast = model_fit.forecast(steps=1)[0]
+    next_year = time_series_data['YEAR'].max() + 1
+    predicted_production = model.predict([[next_year]])[0]
+
     # Prepare the response
     response = {
             'crop': crop_name,
