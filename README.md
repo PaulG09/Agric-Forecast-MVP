@@ -1,4 +1,4 @@
-**Agri-Forecast Platform
+gri-Forecast Platform
 
 **Description
 
