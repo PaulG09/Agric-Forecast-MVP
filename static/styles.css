@@ -1,0 +1,80 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #f8f9fa; 
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	max-width: 800px;
+	margin: 40px auto; 
+	background: #ffffff; /* White background for content */
+	padding: 30px;
+	border-radius: 12px; /* Rounded corners */
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h1 {
+	text-align: center;
+	color: #333; /* Dark grey for text */
+	font-size: 2.5rem; /* Larger title */
+	margin-bottom: 20px; /* Space below title */
+}
+
+form {
+	margin: 20px 0;
+	padding: 15px;
+	border: 1px solid #dee2e6; /* Border for form */
+	border-radius: 8px; /* Rounded corners */
+	background-color: #f1f3f5; /* Light grey background for form */
+}
+
+label {
+	font-weight: 500; /* Medium weight for labels */
+	margin-bottom: 5px;
+	display: block;
+	color: #495057;
+}
+
+select, input[type="month"], button {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0; /* Space around inputs */
+	border: 1px solid #ced4da; /* Light grey border */
+	border-radius: 5px; /* Rounded corners */
+	font-size: 1rem; /* Consistent font size */
+}
+
+select:focus, input[type="month"]:focus, button:focus {
+	outline: none; /* Remove outline */
+	border-color: #28a745; /* Green border on focus */
+}
+button {
+	background-color: #28a745; /* Green background for button */
+	color: white; /* White text */
+	font-size: 1.1rem; /* Slightly larger text */
+	border: none; /* No border */
+	cursor: pointer; /* Pointer on hover */
+	transition: background-color 0.3s ease; /* Smooth transition */
+}
+button:hover {
+	background-color: #218838; /* Darker green on hover */
+}
+.loading {
+	text-align: center;
+	font-weight: bold;
+	color: #007bff; /* Blue for loading text */
+	font-size: 1.2rem; /* Slightly larger loading text */
+}
+#results {
+	margin-top: 20px;
+	padding: 15px;
+	background-color: #e9ecef; /* Light grey background for results */
+	border-radius: 8px;
+	border-left: 5px solid #28a745; 
+}
+canvas {
+	margin-top: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1):
+}
