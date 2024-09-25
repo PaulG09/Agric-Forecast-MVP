@@ -22,13 +22,26 @@ document.addEventListener("DOMContentLoaded", function () {
 	    }
 	forecastForm.addEventListener("submit", async function (event) {
 		event.preventDefault();
-	
 		resultsDiv.innerHTML = "";
 		loadingDiv.style.display = "block";
 		const selectedCrop = cropSelect.value;
-		const selectedTimeframe = document.getElementById('timeframe').value;  
+		const selectedTimeframe = timeframe.value;
+
 		try {
-			const response = await fetch(`/api/forecast?crop=${selectedCrop}&timeframe=${selectedTimeframe}`); 
+			const response = await fetch('/api/predict', {
+				method: 'POST',  
+				headers: {
+					'Content-Type': 'application/json' 
+				},
+				body: JSON.stringify({  
+					crop: selectedCrop,
+					timeframe: selectedTimeframe
+				})
+			});
+
+			if (!response.ok) {
+				throw new Error('Network response was not ok ' + response.statusText);
+			}                                                                                                                                                    
 			const result = await response.json();
 			displayResults(result);
 			plotChart(result);
